@@ -1,0 +1,15 @@
+<div [ngSwitch]="nameList.length < 5 "> <!--poder agregar solo 5 nombres y al llegar a 5 desabilitar boton-->
+    <div *ngSwitchCase="true">
+        <input type="text" [(ngModel)]="inputName">
+        <button (click)="addName()">Add name</button>
+    </div>
+
+    <div *ngSwitchCase="false"> <!--mostrar mensaje cuando ya no se pueda agregar nombres-->
+        <p>You can`t add more names</p>
+
+    </div>
+</div>
+
+<p *ngFor="let item of nameList; index as i" (click)="onNameClick()">
+  {{i}} - Hello {{item | upperCapital}} ! <!--para poner la primer letra mayuscula y lo demas en minuscula-->
+</p>
